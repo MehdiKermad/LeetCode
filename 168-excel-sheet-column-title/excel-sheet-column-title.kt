@@ -28,8 +28,7 @@ class Solution {
             25 to 'Y',
             26 to 'Z'
         )
-        var strBuilder = StringBuilder()
-        
+        val strBuilder = StringBuilder()
         var left = columnNumber
         while (left > 0) {
             // Compensate the absence of zero in our basis
