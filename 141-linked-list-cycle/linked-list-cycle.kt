@@ -10,14 +10,14 @@
 
 class Solution {
     fun hasCycle(head: ListNode?): Boolean {
-        val seenSet = mutableSetOf<ListNode?>()
+        val seenSet = mutableSetOf<Int>()
 
         var currentNode = head
         while (currentNode != null) {
-            if (seenSet.contains(currentNode!!)) {
+            if (seenSet.contains(System.identityHashCode(currentNode!!))) {
                 return true
             } else {
-                seenSet.add(currentNode!!)
+                seenSet.add(System.identityHashCode(currentNode!!))
             }
             currentNode = currentNode?.next
         }
