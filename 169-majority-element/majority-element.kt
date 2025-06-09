@@ -5,18 +5,16 @@ class Solution {
 
         val threshold = nums.size / 2
         val frequencyMap = mutableMapOf<Int, Int>()
+        
         for (n in nums) {
-            if (frequencyMap.contains(n)) {
-                if (frequencyMap[n]!! + 1 > threshold) {
-                    return n
-                } else {
-                    frequencyMap[n] = frequencyMap[n]!! + 1
-                }
+            val current = frequencyMap.getOrDefault(n, 0)
+            if (current + 1 > threshold) {
+                return n
             } else {
-                frequencyMap[n] = 1
+                frequencyMap[n] = current + 1
             }
         }
 
-        return 0
+        return -1
     }
 }
