@@ -29,10 +29,10 @@ class Solution {
 
         // If both are null, it means there are no loop because we reached an end
         while (
-                tortoise != null &&
+                hare?.next != null &&
                 hare != null &&
                 tortoise?.next != null &&
-                hare?.next != null
+                tortoise != null
             ) {
             if (tortoise == hare || hare?.next == tortoise) {
                 return true
