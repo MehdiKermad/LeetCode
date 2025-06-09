@@ -34,7 +34,7 @@ class Solution {
                 tortoise?.next != null &&
                 tortoise != null
             ) {
-            if (tortoise == hare || hare?.next == tortoise) {
+            if (tortoise == hare) {
                 return true
             }
 
