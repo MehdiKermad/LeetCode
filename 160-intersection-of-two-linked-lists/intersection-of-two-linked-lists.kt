@@ -10,7 +10,7 @@
 
 class Solution {
     fun getIntersectionNode(headA: ListNode?, headB: ListNode?): ListNode? {
-        val seenSet = mutableSetOf<ListNode>()
+        val seenSet = mutableMapOf<Int, ListNode>()
         var ptrA = headA
         var ptrB = headB
 
@@ -22,21 +22,20 @@ class Solution {
 
             // If not, we save what we saw in both list
             ptrA?.let {
-                if (!seenSet.contains(ptrA)) {
-                    seenSet.add(ptrA)
+                if (!seenSet.contains(System.identityHashCode(it))) {
+                    seenSet[System.identityHashCode(it)] = it
                 } else {
-                    return ptrA
+                    return it
                 }
             }
             
             ptrB?.let {
-                if (!seenSet.contains(ptrB)) {
-                    seenSet.add(ptrB)
+                if (!seenSet.contains(System.identityHashCode(it))) {
+                    seenSet[System.identityHashCode(it)] = it
                 } else {
-                    return ptrB
+                    return it
                 }
             }
-
 
             ptrA = ptrA?.next
             ptrB = ptrB?.next
