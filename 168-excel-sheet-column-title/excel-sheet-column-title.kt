@@ -28,7 +28,7 @@ class Solution {
             25 to 'Y',
             26 to 'Z'
         )
-        var title = ""
+        var strBuilder = StringBuilder()
         
         var left = columnNumber
         while (left > 0) {
@@ -38,9 +38,9 @@ class Solution {
             val q = left/26
             val r = left%26
             
-            title = letterMap[1 + r].toString() + title
+            strBuilder.insert(0, letterMap[1 + r])
             left = q
         }
-        return title
+        return strBuilder.toString()
     }
 }
