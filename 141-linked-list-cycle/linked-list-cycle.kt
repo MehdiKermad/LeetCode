@@ -28,12 +28,7 @@ class Solution {
         var hare = head?.next // Move by two steps
 
         // If both are null, it means there are no loop because we reached an end
-        while (
-                hare?.next != null &&
-                hare != null &&
-                tortoise?.next != null &&
-                tortoise != null
-            ) {
+        while (hare != null) {
             if (tortoise == hare) {
                 return true
             }
