@@ -10,8 +10,8 @@
 
 class Solution {
     fun hasCycle(head: ListNode?): Boolean {
+        /*// First method
         val seenSet = mutableSetOf<Int>()
-
         var currentNode = head
         while (currentNode != null) {
             if (seenSet.contains(System.identityHashCode(currentNode!!))) {
@@ -21,6 +21,22 @@ class Solution {
             }
             currentNode = currentNode?.next
         }
+        return false*/
+
+        // Second method: Floyd's tortoise & hare
+        var tortoise = head // Move by one step
+        var hare = head?.next // Move by two steps
+
+        // If both are null, it means there are no loop because we reached an end
+        while (tortoise != null && hare != null) {
+            if (tortoise == hare) {
+                return true
+            }
+
+            tortoise = tortoise?.next // Move by one step
+            hare = hare?.next?.next // Move by two steps
+        }
+
         return false
     }
 }
