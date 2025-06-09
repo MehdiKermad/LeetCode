@@ -34,12 +34,8 @@ class Solution {
         while (left > 0) {
             // Compensate the absence of zero in our basis
             left--
-            
-            val q = left/26
-            val r = left%26
-            
-            strBuilder.insert(0, letterMap[1 + r])
-            left = q
+            strBuilder.insert(0, letterMap[1 + left%26])
+            left = left/26
         }
         return strBuilder.toString()
     }
