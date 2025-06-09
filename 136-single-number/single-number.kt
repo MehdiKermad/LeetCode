@@ -12,6 +12,6 @@ class Solution {
             }
         }
 
-        return candidateSet.first()
+        return candidateSet.last()
     }
 }
