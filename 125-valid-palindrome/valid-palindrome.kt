@@ -14,9 +14,6 @@ class Solution {
             }
         }
 
-        println(stringBuilder.toString())
-        println(stringBuilder.reversed().toString())
-
         return stringBuilder.toString() == stringBuilder.reversed().toString()
     }
 }
