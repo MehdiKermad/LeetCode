@@ -32,7 +32,7 @@ class Solution {
         var number: Int = 0 // Calculated number
         var factor = 1 // Each character will have be a factor of 26
         
-        for (i in columnTitle.length - 1 downTo 0) {
+        for (i in columnTitle.toCharArray().size - 1 downTo 0) {
             number += letterMap[columnTitle[i]]!! * factor
             factor *= alphabetSize
         }
