@@ -28,16 +28,13 @@ class Solution {
             'Y' to 25,
             'Z' to 26
         )
-        var number: Int = 0
-        var digitTreated: Int = 0
+        val alphabetSize = 26
+        var number: Int = 0 // Calculated number
+        var factor = 1 // Each character will have be a factor of 26
         
         for (i in columnTitle.length - 1 downTo 0) {
-            if (digitTreated > 0) {
-                number += (letterMap[columnTitle[i]]!! * (Math.pow(26.0, digitTreated.toDouble()).toInt()))
-            } else {
-                number += letterMap[columnTitle[i]]!!
-            }
-            digitTreated++
+            number += letterMap[columnTitle[i]]!! * factor
+            factor *= alphabetSize
         }
         return number
     }
