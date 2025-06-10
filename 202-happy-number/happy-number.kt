@@ -16,10 +16,8 @@ fun isHappy(n: Int): Boolean {
         res.toString().forEach {
             val digit = Integer.parseInt(it.toString())
             currentRes += digit*digit
-            print("" + digit + " ")
         }
         res = currentRes
-        println(res)
         if (res in intArrayOf(2,3,4,5,6,8,9)) return false
     }
     
