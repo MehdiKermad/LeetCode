@@ -1,14 +1,13 @@
 class Solution {
     fun isPalindrome(s: String): Boolean {
-        //val stringBuilder = StringBuilder(s.length)
-        var str = ""
+        val stringBuilder = StringBuilder(s.length)
 
         // We check if each character exist in Kotlin charsets
         for (c in s.lowercase()) {
             if (c.isLetterOrDigit()) {
-                str += c
+                stringBuilder.append(c)
             }
         }
-        return str == str.reversed()
+        return stringBuilder.toString() == stringBuilder.toString().reversed()
     }
 }
