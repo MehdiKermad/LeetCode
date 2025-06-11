@@ -40,7 +40,6 @@ class Solution {
             }
         }*/
 
-        /*
         // Third method
         var longestPrefix = ""
         strs.sort() // Sort alphabetically the array
@@ -52,23 +51,6 @@ class Solution {
                 longestPrefix += firstWrd[i]
             } else {
                 break
-            }
-        }
-        
-        return longestPrefix*/
-
-        // Fourth method
-        var longestPrefix = strs.first()
-        
-        // We check every word
-        for (wrd in 1..strs.size - 1) {
-            // We check every letter
-            for (i in 0..longestPrefix.length - 1) {
-                if (longestPrefix.getOrNull(i) != strs[wrd].getOrNull(i)) {
-                    // We cut the word until we find the common prefix
-                    longestPrefix = longestPrefix.substring(0..i-1)
-                    break
-                }
             }
         }
         
