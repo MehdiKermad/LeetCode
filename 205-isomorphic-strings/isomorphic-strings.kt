@@ -7,16 +7,10 @@ class Solution {
         for (i in 0 until s.length) {
             
             // We check the first matching
-            val firstMatch = firstMap.getOrPut(s[i]) { t[i] }
-            if (firstMatch != t[i]) {
-                return false
-            }
+            if (firstMap.getOrPut(s[i]) { t[i] } != t[i]) { return false }
             
             // We check the second matching
-            val secondMatch = secondMap.getOrPut(t[i]) { s[i] }
-            if (secondMatch != s[i]) {
-                return false
-            }
+            if (secondMap.getOrPut(t[i]) { s[i] } != s[i]) { return false }
         }
 
         return true
