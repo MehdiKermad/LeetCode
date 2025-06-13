@@ -2,19 +2,26 @@ class Solution {
     fun isIsomorphic(s: String, t: String): Boolean {
         val lettersMap = mutableMapOf<Char, Char>()
         val lettersMap2 = mutableMapOf<Char, Char>()
+        
+        // Both words have the same size
         for (i in 0 until s.length) {
-            if (!lettersMap.contains(s[i])) {
+            
+            // We check the first matching
+            val firstMatch = lettersMap[s[i]]
+            if (firstMatch == null) {
                 lettersMap[s[i]] = t[i]
             } else {
-                if (lettersMap[s[i]] != t[i]) {
+                if (firstMatch != t[i]) {
                     return false
                 }
             }
             
-            if (!lettersMap2.contains(t[i])) {
+            // We check the second matching
+            val secondMatch = lettersMap2[t[i]]
+            if (secondMatch == null) {
 				lettersMap2[t[i]] = s[i]
             } else {
-                if (lettersMap2[t[i]] != s[i]) {
+                if (secondMatch != s[i]) {
 					return false
                 }
             }
