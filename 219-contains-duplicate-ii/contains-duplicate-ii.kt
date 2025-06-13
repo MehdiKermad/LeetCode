@@ -5,14 +5,12 @@ class Solution {
         // Checking each number position
         for (i in 0 until nums.size) {
             val numberPositionMatch = numberPosMap.getOrPut(nums[i]) { i }
-            if (numberPositionMatch != i) {
-                if (Math.abs(numberPositionMatch - i) <= k) {
-                    // Checking if the previous occurence is in the range
-                    return true
-                } else {
-                    // Or we update the position with the new one
-                    numberPosMap[nums[i]] = i
-                }
+            if (Math.abs(numberPositionMatch - i) in 1..k) {
+                // Checking if the previous occurence is in the range
+                return true
+            } else {
+                // Or we update the position with the new one
+                numberPosMap[nums[i]] = i
             }
         }
         
