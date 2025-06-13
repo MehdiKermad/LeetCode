@@ -4,21 +4,17 @@ class Solution {
         val lettersMap2 = mutableMapOf<Char, Char>()
         for (i in 0 until s.length) {
             if (!lettersMap.contains(s[i])) {
-                println(""+s[i]+ " => " + t[i])
                 lettersMap[s[i]] = t[i]
             } else {
                 if (lettersMap[s[i]] != t[i]) {
-                    println(""+lettersMap[s[i]] + " est diff de " + t[i])
                     return false
                 }
             }
             
             if (!lettersMap2.contains(t[i])) {
-                println(""+t[i]+ " => " + s[i])
 				lettersMap2[t[i]] = s[i]
             } else {
                 if (lettersMap2[t[i]] != s[i]) {
-                    println(""+lettersMap2[t[i]] + " est diff de " + s[i])
 					return false
                 }
             }
