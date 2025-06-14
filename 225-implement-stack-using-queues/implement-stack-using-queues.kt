@@ -1,19 +1,23 @@
 class MyStack() {
-    val deque = LinkedList<Int>()
+    val list = mutableListOf<Int>()
     fun push(x: Int) {
-        deque.add(0, x) // Add to the top
+        list.add(0, x) // Add to the top
     }
 
     fun pop(): Int {
-        return deque.removeFirst()
+        return list.removeFirst()
     }
 
     fun top(): Int {
-        return deque.first()
+        return if (list.size > 0) {
+            list[0]
+        } else {
+            -1
+        }
     }
 
     fun empty(): Boolean {
-        return deque.isEmpty()
+        return list.isEmpty()
     }
 
 }
