@@ -10,19 +10,15 @@ class Solution {
 
         for (i in 1 until nums.size) {
             val diff = Math.abs(nums[i] - nums[i-1])
-            println("Diff entre "+nums[i-1]+ " et "+ nums[i] + " = "+ diff)
             if (diff == 1) {
                 // If the difference between n - n-1 = 1, it's the same range
-                println("-- Range++")
                 lastElement = nums[i]
             } else if (diff != 1 && lastElement == null) {
                 // Case where we start with an isolated number
-                println("-- Isolate")
                 rangesList.add(firstElement.toString())
                 firstElement = nums[i]
             } else {
                 // Case where the range breaks
-                println("-- Breaks")
                 rangesList.add("" + firstElement + "->" + nums[i-1])
                 firstElement = nums[i]
                 lastElement = null
