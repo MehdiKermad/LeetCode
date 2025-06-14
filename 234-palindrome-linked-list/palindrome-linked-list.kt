@@ -13,8 +13,8 @@ class Solution {
         // If there is one or no element, it's a palindrome
         if (head == null || head?.next == null) return true
 
-        val deque = ArrayDeque<Int>()
-        val reversedDeque = ArrayDeque<Int>()
+        val deque = mutableListOf<Int>()
+        //val reversedDeque = mutableListOf<Int>()
         var currentNode = head
 
         while (currentNode != null) {
@@ -26,10 +26,10 @@ class Solution {
                 deque.add(currentNode?.`val`!!)
             }*/
             deque.add(currentNode?.`val`!!)
-            reversedDeque.add(0, currentNode?.`val`!!)
+            //reversedDeque.add(0, currentNode?.`val`!!)
             currentNode = currentNode?.next
         }
 
-        return deque == reversedDeque
+        return deque == deque.reversed()
     }
 }
