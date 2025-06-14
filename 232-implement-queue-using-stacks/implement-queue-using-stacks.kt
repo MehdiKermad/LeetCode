@@ -1,19 +1,19 @@
 class MyQueue() {
-    val list = mutableListOf<Int>()
+    val deque = ArrayDeque<Int>()
     fun push(x: Int) {
-        list.add(x)
+        deque.add(x)
     }
 
     fun pop(): Int {
-        return list.removeFirst()
+        return deque.removeFirst()
     }
 
     fun peek(): Int {
-        return list[0]
+        return deque[0]
     }
 
     fun empty(): Boolean {
-        return list.isEmpty()
+        return deque.isEmpty()
     }
 
 }
