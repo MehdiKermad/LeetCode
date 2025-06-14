@@ -14,6 +14,7 @@ class Solution {
         if (head == null || head?.next == null) return true
 
         val deque = ArrayDeque<Int>()
+        val reversedDeque = ArrayDeque<Int>()
         var currentNode = head
 
         while (currentNode != null) {
@@ -25,9 +26,10 @@ class Solution {
                 deque.add(currentNode?.`val`!!)
             }*/
             deque.add(currentNode?.`val`!!)
+            reversedDeque.add(0, currentNode?.`val`!!)
             currentNode = currentNode?.next
         }
 
-        return deque == deque.reversed()
+        return deque == reversedDeque
     }
 }
