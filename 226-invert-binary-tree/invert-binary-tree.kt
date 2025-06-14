@@ -13,21 +13,10 @@ class Solution {
         // Check first if the node exists
         if (root == null) return null
 
-        var tempRight: TreeNode? = null
-        var tempLeft: TreeNode? = null
-
-        root?.left?.let {
-            // If we can dive deeper, we call the function recursively
-            tempLeft = invertTree(it)
-        }
-        root?.right?.let {
-            // If we can dive deeper, we call the function recursively
-            tempRight = invertTree(it)
-        }
-
-        // We swap the two nodes
-        root?.left = tempRight
-        root?.right = tempLeft
+        // We swap nodes and if we can dive deeper, we call the function recursively
+        val tempNode = invertTree(root?.right)
+        root?.right = invertTree(root?.left)
+        root?.left = tempNode
 
         return root
     }
