@@ -1,26 +1,22 @@
-/**
- * Example:
- * var li = ListNode(5)
- * var v = li.`val`
- * Definition for singly-linked list.
- * class ListNode(var `val`: Int) {
- *     var next: ListNode? = null
- * }
- */
 class Solution {
     fun isPalindrome(head: ListNode?): Boolean {
+        val stack = ArrayList<ListNode?>()
 
-        // If there is one or no element, it's a palindrome
-        if (head == null || head?.next == null) return true
-
-        val list = mutableListOf<Int>()
-        var currentNode = head
-
-        while (currentNode != null) {
-            list.add(currentNode?.`val`!!)
-            currentNode = currentNode?.next
+        var node: ListNode? = head
+        stack.add(node)
+        while (node != null) {
+            val next = node.next
+            stack.add(next)
+            node = next
         }
+        stack.removeAt(stack.size - 1)
 
-        return list == list.reversed()
+        node = head
+        val min = stack.size shr 1
+        while (stack.size > min) {
+            if (node?.`val` != stack.removeAt(stack.size - 1)?.`val`) return false
+            node = node?.next
+        }
+        return true
     }
 }
