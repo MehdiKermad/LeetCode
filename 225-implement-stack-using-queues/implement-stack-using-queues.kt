@@ -1,5 +1,5 @@
 class MyStack() {
-    val deque = ArrayDeque<Int>()
+    val deque = mutableListOf<Int>()
     fun push(x: Int) {
         deque.add(0, x) // Add to the top
     }
