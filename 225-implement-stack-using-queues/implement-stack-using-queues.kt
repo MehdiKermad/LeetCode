@@ -1,5 +1,5 @@
 class MyStack() {
-    val deque = mutableListOf<Int>()
+    val deque = LinkedList<Int>()
     fun push(x: Int) {
         deque.add(0, x) // Add to the top
     }
