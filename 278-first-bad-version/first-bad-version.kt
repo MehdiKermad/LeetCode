@@ -11,7 +11,7 @@ class Solution: VersionControl() {
         var maxVersion = n.toLong()
         
         while (maxVersion - minVersion > 1) {
-            val middle: Long = ((minVersion+maxVersion)/2)
+            val middle = ((minVersion+maxVersion)/2L)
             if (isBadVersion(middle.toInt())) {
                 maxVersion = middle
             } else {
