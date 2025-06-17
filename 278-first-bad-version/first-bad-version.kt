@@ -7,18 +7,18 @@ class Solution: VersionControl() {
         if (n == 1) return n
 
         // n represents the last version
-        var minVersion = 1
-        var maxVersion = n
+        var minVersion = 1L
+        var maxVersion = n.toLong()
         
         while (maxVersion - minVersion > 1) {
-            val middle = ((minVersion.toLong()+maxVersion.toLong())/2).toInt()
-            if (isBadVersion(middle)) {
+            val middle: Long = ((minVersion+maxVersion)/2)
+            if (isBadVersion(middle.toInt())) {
                 maxVersion = middle
             } else {
                 minVersion = middle
             }
         }
         
-        return minVersion.takeIf { isBadVersion(it) } ?: maxVersion
+        return minVersion.toInt().takeIf { isBadVersion(it) } ?: maxVersion.toInt()
 	}
 }
