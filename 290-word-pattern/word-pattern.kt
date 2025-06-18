@@ -14,18 +14,14 @@ class Solution {
             
             if (!bijectionMap1.contains(currentChar)) {
                 bijectionMap1[currentChar] = currentWord
-            } else {
-                if (bijectionMap1[currentChar] != currentWord) {
-                    return false
-                }
+            } else if (bijectionMap1[currentChar] != currentWord) {
+                return false
             }
             
             if (!bijectionMap2.contains(currentWord)) {
                 bijectionMap2[currentWord] = currentChar
-            } else {
-                if (bijectionMap2[currentWord] != currentChar) {
-                    return false
-                }
+            } else if (bijectionMap2[currentWord] != currentChar) {
+                return false
             }
         }
         
