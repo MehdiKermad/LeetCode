@@ -1,7 +1,9 @@
 class NumArray(nums: IntArray) {
-    val nums: IntArray
+    val nums = IntArray(size = nums.size)
     init {
-        this.nums = nums
+        for (i in 0 until nums.size) {
+            this.nums[i] = nums[i]
+        }
     }
 
     fun sumRange(left: Int, right: Int): Int {
