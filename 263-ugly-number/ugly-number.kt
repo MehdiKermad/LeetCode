@@ -1,11 +1,13 @@
 class Solution {
     fun isUgly(n: Int): Boolean {
 
-        if (n == 0) return false
-        if (n == 1) return true
+        // An ugly number has to be positive
+        if (n < 1) { 
+            return false
+        } else if (n == 1) {
+            return true}
 
         var left = n
-        
         while (left != 1) {
             when {
                 left % 2 == 0 -> {
