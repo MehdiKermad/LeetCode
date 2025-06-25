@@ -1,10 +1,11 @@
 class Solution {
     fun countBits(n: Int): IntArray {
-        val bitArray = Array<Int>(n + 1) { 0 } // Fixed size is more performant
-        
+        //val bitArray = Array<Int>(n + 1) { 0 } // Fixed size is more performant
+        val bitArray = mutableListOf<Int>()
+
         // We fill the array from 0 to n + 1
         for (i in 0 .. n) {
-            bitArray[i] = toBinary(i) // The number to calculate is the current indice
+            bitArray.add(toBinary(i)) // The number to calculate is the current indice
         }
         
         return bitArray.toIntArray()
