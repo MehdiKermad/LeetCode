@@ -1,7 +1,5 @@
 class Solution {
     fun intersection(nums1: IntArray, nums2: IntArray): IntArray {
-        val firstSet = nums1.toSet()
-        val secondSet = nums2.toSet()
-        return firstSet.intersect(secondSet).toIntArray()
+        return nums1.toSet().intersect(nums2.toSet()).toIntArray()
     }
 }
