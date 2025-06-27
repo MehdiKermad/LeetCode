@@ -10,13 +10,11 @@ class Solution {
             }
 
             // Then we look at each value to determine which one is common
-            var cpt = 0
-            while (seenList.isNotEmpty() && cpt < nums2.size) {
-                if (seenList.contains(nums2[cpt])) {
-                    seenList.remove(nums2[cpt])
-                    interList.add(nums2[cpt])
+            nums2.forEach {
+                if (seenList.contains(it)) {
+                    seenList.remove(it)
+                    interList.add(it)
                 }
-                cpt++
             }
         } else {
             // We build a list of seen values
@@ -25,13 +23,11 @@ class Solution {
             }
 
             // Then we look at each value to determine which one is common
-            var cpt = 0
-            while (seenList.isNotEmpty() && cpt < nums1.size) {
-                if (seenList.contains(nums1[cpt])) {
-                    seenList.remove(nums1[cpt])
-                    interList.add(nums1[cpt])
+            nums1.forEach {
+                if (seenList.contains(it)) {
+                    seenList.remove(it)
+                    interList.add(it)
                 }
-                cpt++
             }
         }
     
