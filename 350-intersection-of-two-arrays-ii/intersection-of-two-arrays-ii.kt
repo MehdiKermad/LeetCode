@@ -10,10 +10,11 @@ class Solution {
             }
 
             // Then we look at each value to determine which one is common
-            nums2.forEach {
-                if (seenList.contains(it)) {
-                    seenList.remove(it)
-                    interList.add(it)
+            for (i in nums2) {
+                if (seenList.contains(i)) {
+                    seenList.remove(i)
+                    interList.add(i)
+                    if (seenList.isEmpty()) break
                 }
             }
         } else {
@@ -23,10 +24,11 @@ class Solution {
             }
 
             // Then we look at each value to determine which one is common
-            nums1.forEach {
-                if (seenList.contains(it)) {
-                    seenList.remove(it)
-                    interList.add(it)
+            for (i in nums1) {
+                if (seenList.contains(i)) {
+                    seenList.remove(i)
+                    interList.add(i)
+                    if (seenList.isEmpty()) break
                 }
             }
         }
