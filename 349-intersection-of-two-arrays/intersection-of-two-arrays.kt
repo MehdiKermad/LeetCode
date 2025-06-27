@@ -12,13 +12,12 @@ class Solution {
             
             // We add everything we find in sets
             firstNumsSet.add(currentFirst)
+            secondNumsSet.add(currentSecond)
                 
             // If it's present in the other set, it's a common element
             if (secondNumsSet.contains(currentFirst)) {
                 interSet.add(currentFirst!!)
             }
-            
-            secondNumsSet.add(currentSecond)
             if (firstNumsSet.contains(currentSecond)) {
                 interSet.add(currentSecond!!)
             }
