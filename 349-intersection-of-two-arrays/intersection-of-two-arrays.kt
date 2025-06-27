@@ -1,7 +1,6 @@
 class Solution {
     fun intersection(nums1: IntArray, nums2: IntArray): IntArray {
         val seenSet = mutableSetOf<Int>()
-        val secondNumsSet = mutableSetOf<Int>()
         val interSet = mutableSetOf<Int>()
         
         // We build a set of seen values
