@@ -1,25 +1,18 @@
 class Solution {
     fun intersection(nums1: IntArray, nums2: IntArray): IntArray {
-        val maxSize = maxOf(nums1.size, nums2.size)
-        val firstNumsSet = mutableSetOf<Int?>()
-        val secondNumsSet = mutableSetOf<Int?>()
+        val seenSet = mutableSetOf<Int>()
+        val secondNumsSet = mutableSetOf<Int>()
         val interSet = mutableSetOf<Int>()
         
-        // We check both arrays simultanously 
-        for (i in 0 until maxSize) {
-            val currentFirst = nums1.getOrNull(i)
-            val currentSecond = nums2.getOrNull(i)
-            
-            // We add everything we find in sets
-            firstNumsSet.add(currentFirst)
-            secondNumsSet.add(currentSecond)
-                
-            // If it's present in the other set, it's a common element
-            if (secondNumsSet.contains(currentFirst)) {
-                interSet.add(currentFirst!!)
-            }
-            if (firstNumsSet.contains(currentSecond)) {
-                interSet.add(currentSecond!!)
+        // We build a set of seen values
+        nums1.forEach {
+            seenSet.add(it)
+        }
+        
+        // Then we look at each value to determine which one is common
+        nums2.forEach {
+            if (seenSet.contains(it)) {
+                interSet.add(it)
             }
         }
         
