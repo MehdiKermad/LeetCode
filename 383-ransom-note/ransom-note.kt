@@ -1,9 +1,5 @@
 class Solution {
     fun canConstruct(ransomNote: String, magazine: String): Boolean {
-        // Special cases
-        if (ransomNote.isEmpty()) return true
-        if (magazine.length < ransomNote.length) return false
-        
         // We transform needed letters as a list
         val neededLetters = ransomNote.toList()
         val availableLetters = magazine.toMutableList()
