@@ -4,20 +4,20 @@ class Solution {
         if (s.length == 0) return -1
         else if (s.length == 1) return 0
         
-        // LinkedMap keeps the insertion order
-        val candidateMap = linkedMapOf<Char, Int>()
-        val duplicateSet = mutableSetOf<Char>()
+        // LinkedMap keeps the insertion order; Pair<Position, Frequency>
+        val candidateMap = linkedMapOf<Char, Pair<Int, Int>>()
         
         for (i in 0 until s.length) {
-            if (!duplicateSet.contains(s[i]) && !candidateMap.contains(s[i])) {
-                // If it's a new one, we insert it
-                candidateMap[s[i]] = i
-            } else {
-                candidateMap.remove(s[i])
-                duplicateSet.add(s[i])
+            candidateMap[s[i]] = candidateMap.getOrElse(s[i]) { Pair(i, 0) }.run { Pair(first, second + 1) }
+        }
+                
+        // Getting the first element having only one occurrence
+        candidateMap.forEach {
+            if (it.value.second == 1) {
+                return it.value.first
             }
         }
         
-        return candidateMap.values.firstOrNull() ?: -1
+        return -1
     }
 }
