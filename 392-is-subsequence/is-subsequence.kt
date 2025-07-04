@@ -1,15 +1,17 @@
 class Solution {
     fun isSubsequence(s: String, t: String): Boolean {
-        val requiredLettersList = s.toMutableList()
-        var cpt = 0
+        var foundLetters = 0 // Move to each needed character
+        var cpt = 0 // Move in each character of the target word
         
-        while (requiredLettersList.isNotEmpty() && cpt < t.length) {
-            if (requiredLettersList.firstOrNull() == t[cpt]) {
-                requiredLettersList.removeFirst()
+        // We loop until we get all needed letters or we checked all the target word
+        while (foundLetters < s.length && cpt < t.length) {
+            if (s[foundLetters] == t[cpt]) {
+                // If a needed char is found, we move to the next one
+                foundLetters++
             }
             cpt++
         }
         
-        return requiredLettersList.isEmpty()
+        return foundLetters == s.length
     }
 }
