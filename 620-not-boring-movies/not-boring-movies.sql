@@ -1,5 +1,5 @@
 SELECT *
 FROM Cinema
-WHERE description != "boring"
-AND (id % 2) = 1
+WHERE (id % 2) = 1
+AND description != "boring"
 ORDER BY rating DESC;
