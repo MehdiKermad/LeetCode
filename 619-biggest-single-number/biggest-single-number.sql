@@ -6,4 +6,3 @@ SELECT
     HAVING COUNT(num) < 2
     ORDER BY num DESC
     LIMIT 1) AS num
-FROM dual
